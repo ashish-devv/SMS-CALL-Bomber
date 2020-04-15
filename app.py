@@ -54,6 +54,10 @@ def call():
 		os.system(commlinux)
 	return render_template("call.html")
 
+@app.route("/log")
+def l():
+	return render_template("log.html")
+
 
 
 if __name__=="__main__":
