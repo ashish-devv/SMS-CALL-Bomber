@@ -6,26 +6,37 @@ app=Flask(__name__)
 def index():
 	return render_template("index.html")
 
-@app.route("/call")
-def indexcall():
-	return render_template("call.html")
-
 @app.route("/",methods=['POST'])
 def sms():
 	phonesms=request.form['phone']
 	numbersms=request.form['noofmess']
 	delaysms=request.form['delay']
-	comm="bomber.py sms {} {} {}".format(phonesms,numbersms,delaysms)
-	os.system(comm)
+	commwindows="bomber.py sms {} {} {}".format(phonesms,numbersms,delaysms)
+	commlinux=" python3 bomber.py sms {} {} {}".format(phonesms,numbersms,delaysms)
+	if os.name == 'nt':
+		os.system(commwindows)
+	else:
+		os.system(commlinux)
 	return render_template("index.html")
 
-@app.route("/call",methods=['POST'])
+
+@app.route("/call")
+def indexcall():
+	return render_template("call.html")
+
+
+
+@app.route("/call",methods=['GET','POST'])
 def call():
 	phone=request.form['phoneno']
 	numbersms=request.form['messno']
 	delay=request.form['del']
-	comm="bomber.py call {} {} {}".format(phone,numbersms,delay)
-	os.system(comm)
+	commwindows="bomber.py call {} {} {}".format(phone,numbersms,delay)
+	commlinux="python3 bomber.py call {} {} {}".format(phone,numbersms,delay)
+	if (os.name == 'nt'):
+		os.system(commwindows)
+	else:
+		os.system(commlinux)
 	return render_template("call.html")
 
 

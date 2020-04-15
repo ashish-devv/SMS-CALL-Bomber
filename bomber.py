@@ -749,10 +749,10 @@ while True:
         cc = ''.join(tc)
         cc = cc.strip()
     pn = sys.argv[2]
-    protectlist=["7301972921"]
-    for i in protectlist:
-        if(pn==i):
-            pn=0
+    #protectlist=["7301972921"]
+    #for i in protectlist:
+        #if(pn==i):
+            #pn=0
     #input("\tEnter Target Number: +" + cc + " ")
     #ashish
     pn = remsp(pn)
