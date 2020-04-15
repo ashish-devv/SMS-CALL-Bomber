@@ -6,7 +6,7 @@ app=Flask(__name__)
 
 def logger(a,b,c,d,e):
 	now=datetime.now()
-	with open("log.html","a+") as w:
+	with open("./templates/log.html","a+") as w:
 		
 		if(e=="call"):
 			w.write("<br><li class='list-group-item list-group-item-danger'><b>{}</b> PHONE NO :{} , BOMBED no of times: <b>{}</b> , with delay : <b>{}</b> by <b>{}</b> - <b>{}</b></li>\r\n".format(now,a,b,c,d,e))
